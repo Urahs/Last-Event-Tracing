@@ -13,8 +13,6 @@ except:
 
 
 
-
-
 key = "0"
 while True:
     if key == "0":
@@ -57,6 +55,7 @@ while True:
                 
                 
                 #print last time
+                #https://www.geeksforgeeks.org/python-program-to-find-number-of-days-between-two-given-dates/#:~:text=Using%20Python%20datetime%20module%3A,days%20between%20the%20two%20dates.
                 
 
                 print()
