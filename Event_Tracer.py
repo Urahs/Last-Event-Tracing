@@ -241,6 +241,8 @@ Please don't be a silly and use it properly...
 
 
 """
+sample data from if you want to add or change some info from save.txt file
+btw, file is in you users directory
 pino (2022,2,25,15,10,26,1,53,0)
 isp null
 """
