@@ -13,6 +13,8 @@ Hi! This is the first time you run this app.
 This app is created to track the events like god damn uni classes, but
 you can use for everything like go_gym, tidy_room, feed_yourself etc.
 
+I didn't take care of all the bugs, so plz don't be a silly and use it properly
+
 --- How to use ---
 KEY 1:
     It displays the events you have added
@@ -68,7 +70,8 @@ while True:
         lines = file.readlines()
         file.close()
         if lines == []:
-            print("You don't have any event. Go create some...")
+            print("\nYou don't have any event. Go create some...")
+            key = "0"
             continue
         else:
 
@@ -218,6 +221,9 @@ KEY 5:
 
 Donation key (bitcoin):
 139nvyb364H9JMJC1Aywn31PopzSye2x4j
+
+I assumed that you are a smart person so that i didn't take care of all the bugs,
+Please don't be a silly and use it properly...
 """)
         key = "0"
 
