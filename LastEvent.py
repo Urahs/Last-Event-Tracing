@@ -1,4 +1,4 @@
-import os
+import os, time
 
 
 # create save file if it is the first time user executes the app
@@ -13,6 +13,22 @@ except:
 
 
 
+
+
+def Time_Diff(x):
+    # returns the difference of hours between time two datetimes
+    event_last_time = eval("time.struct_time((" + x + "))")
+    res = (time.mktime(event_last_time) - time.mktime(current_time)) // 3600
+    day = int(res // 24)
+    hour = int(res - day * 24)
+    return_as_string = str(day) + "-" + str(hour)
+    
+
+    return return_as_string 
+
+
+os.chdir("C:\\Users\\"+a+"\\Last Event Save File\\")
+current_time = time.localtime()
 key = "0"
 while True:
     if key == "0":
@@ -27,9 +43,10 @@ while True:
     
     # DISPLAY
     if key == "1":
-        os.chdir("C:\\Users\\"+a+"\\Last Event Save File\\")
+        #os.chdir("C:\\Users\\"+a+"\\Last Event Save File\\")
         file = open("save.txt", "r")
         lines = file.readlines()
+        file.close()
         if lines == []:
             print("You don't have any event. Go create some...")
             continue
@@ -52,20 +69,28 @@ while True:
                 print(event_name, end="")
                 for i in range(0, max_length - len(event_name)):
                     print(" ", end="")
-                
-                
-                #print last time
-                #https://www.geeksforgeeks.org/python-program-to-find-number-of-days-between-two-given-dates/#:~:text=Using%20Python%20datetime%20module%3A,days%20between%20the%20two%20dates.
-                
+                print("\t", end="")
 
-                print()
+                time_data = event[1].replace("\n", "")
+                if(time_data != "null"):
+                    last_time = Time_Diff(time_data).split("-")
+                    if last_time[0] == "0":
+                        print(last_time[1] + " hours")
+                    elif last_time[1] == "0":
+                        print(last_time[0] + " days")
+                    else:
+                        print(last_time[0] + " days " + last_time[1] + " hours")
+                else:
+                    print("null")
             print("-------------------------")
         key = "0"
 
     # ADD
     elif key == "2":
-        add_event = input("Please enter a new event\n>>> ")
-        # open txt file with append, then enter add new event like this (event_name 1000 24:00)
+        add_event = input("Please enter a new event (without using space)\n>>> ")
+        file = open("save.txt", "a")
+        file.write("\n" + add_event + " null")
+        file.close()
         key = "0"
 
     # DELETE
@@ -83,6 +108,8 @@ while True:
 
     # EXIT
     elif key == "5":
+        print("by then...")
+        time.sleep(0.5)
         exit()
 
     # SECRET ONE
