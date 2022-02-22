@@ -4,8 +4,8 @@ import os, time
 # create save file if it is the first time user executes the app
 try:
     a = [os.path.expanduser('~')][0][9:]
-    os.makedirs("C:\\Users\\"+a+"\\Last Event Save File\\")
-    os.chdir("C:\\Users\\"+a+"\\Last Event Save File\\")
+    os.makedirs("C:\\Users\\"+a+"\\Event Tracer\\")
+    os.chdir("C:\\Users\\"+a+"\\Event Tracer\\")
     ofile = open("save.txt", "w")
     ofile.close()
     print("""
@@ -50,7 +50,7 @@ def Time_Diff(x, current_time):
     return return_as_string 
 
 
-os.chdir("C:\\Users\\"+a+"\\Last Event Save File\\")
+os.chdir("C:\\Users\\"+a+"\\Event Tracer\\")
 key = "0"
 while True:
     if key == "0":
@@ -112,13 +112,24 @@ while True:
 
     # ADD
     elif key == "2":
+
+        file = open("save.txt", "r")
+        content = file.read()
+        file.close()
+
+
         add_event = input("Please enter a new event (without using space)\n>>> ")
         if " " in add_event:
             print("I said don't use this damn space blank, you silly!")
         else:
-            file = open("save.txt", "a")
-            file.write("\n" + add_event + " null")
-            file.close()
+            if content == "":
+                file = open("save.txt", "a")
+                file.write(add_event + " null")
+                file.close()
+            else:
+                file = open("save.txt", "a")
+                file.write("\n" + add_event + " null")
+                file.close()
         key = "0"
 
     # DELETE
