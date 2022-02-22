@@ -8,7 +8,7 @@ try:
     os.chdir("C:\\Users\\"+a+"\\Last Event Save File\\")
     ofile = open("save.txt", "w")
     ofile.close()
-    ("""
+    print("""
 Hi! This is the first time you run this app.
 This app is created to track the events like god damn uni classes, but
 you can use for everything like go_gym, tidy_room, feed_yourself etc.
