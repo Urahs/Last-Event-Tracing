@@ -99,9 +99,9 @@ while True:
                     last_time = Time_Diff(time_data, current_time).split("-")
                     if (last_time[0] == "0" and last_time[1] == "0"):
                         print("You have just taken care of that shit :)")
-                    elif last_time[0] == "":
+                    elif last_time[0] == "0":
                         print(last_time[1] + " hours")
-                    elif last_time[1] == "":
+                    elif last_time[1] == "0":
                         print(last_time[0] + " days")
                     else:
                         print(last_time[0] + " days " + last_time[1] + " hours")
@@ -118,7 +118,7 @@ while True:
         file.close()
 
 
-        add_event = input("Please enter a new event (without using space)\n>>> ")
+        add_event = input("\nPlease enter a new event (without using space)\n>>> ")
         if " " in add_event:
             print("I said don't use this damn space blank, you silly!")
         else:
@@ -242,7 +242,7 @@ Please don't be a silly and use it properly...
 
 """
 sample data from if you want to add or change some info from save.txt file
-btw, file is in you users directory
+btw, file is in your users directory
 pino (2022,2,25,15,10,26,1,53,0)
 isp null
 """
