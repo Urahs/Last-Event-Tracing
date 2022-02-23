@@ -1,4 +1,5 @@
 import os, time
+from sys import exit
 
 
 # create save file if it is the first time user executes the app
