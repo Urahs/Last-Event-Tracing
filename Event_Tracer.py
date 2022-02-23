@@ -119,7 +119,7 @@ while True:
         file.close()
 
 
-        add_event = input("\nPlease enter a new event (without using space)\n>>> ")
+        add_event = input("Please enter a new event (without using space)\n>>> ")
         if " " in add_event:
             print("I said don't use this damn space blank, you silly!")
         else:
